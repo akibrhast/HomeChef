@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    {%block head%}
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Facebook, LinkedIn -->
+    <meta property="og:url" content="https://github.com/akibrhast/HomeChef.git"/>
+    <meta property="og:title" content="Homechef"/>
+    <meta property="og:description" content="A place to curate recipes recipes found in the wild in one place! A digital collection of recipes! Get yourself running an instance of Homechef for free on heroku and browse recipes you have added in the past via the tag search method. Find the modifications and secret touches you made to the recipes you cooked! Keep track of your cooking journey"/>
+    <meta property="og:site_name" content="Homechef"/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/akibrhast/Hack-Or-Snooze/master/uncurl.png"/>
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://github.com/akibrhast/HomeChef.git">
+    <meta property="twitter:title" content="Homechef">
+    <meta property="twitter:card" content="A place to curate recipes recipes found in the wild in one place! A digital collection of recipes! Get yourself running an instance of Homechef for free on heroku and browse recipes you have added in the past via the tag search method. Find the modifications and secret touches you made to the recipes you cooked! Keep track of your cooking journey">
+    <meta property="twitter:description" content="A place to curate recipes recipes found in the wild in one place! A digital collection of recipes! Get yourself running an instance of Homechef for free on heroku and browse recipes you have added in the past via the tag search method. Find the modifications and secret touches you made to the recipes you cooked! Keep track of your cooking journey">
+    <meta property="twitter:image" 	content="https://raw.githubusercontent.com/akibrhast/Hack-Or-Snooze/master/uncurl.png">
+
+        
+    <link type="text/css" rel="stylesheet" href="/static/css/base.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/afc8923e11.js" crossorigin="anonymous"></script>
+
+     
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Welcome to Home Chef</title>
+        {% endif %}
+    {%endblock%}
+</head>
+
+<body>
+    <div class="page-container"> 
+
+            <div class="navbar">
+                <ul >
+                    {% block navbar %}
+                        <div class="navbar-left-aligned">
+                                <li><a class="active" href="{{ url_for('recipe_index') }}">Home Chef</a></li>
+                        </div>
+
+                    {% endblock  %} 
+                </ul>
+    
+            </div>
+
+
+        <div class="header">
+            <img src="/static/heading1.jpg">
+            <div class="heading-text">
+                <h1 class="h1-heading">Homechef</h1>
+            </div>
+        </div>
+
+        <div class="content_container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <footer><p>&copy; Copyright 2019 by <a href="#" class="external_link">Alpha Powers</a>.</p></footer>
+</body>
+</html>

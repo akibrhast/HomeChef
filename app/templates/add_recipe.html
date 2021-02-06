@@ -1,0 +1,68 @@
+<link type="text/css" rel="stylesheet" href="static/css/add_recipe.css">
+
+<!-- Modal content -->
+<div class="modal-content">
+    <span class="close" id="addRecipeClose">&times;</span>
+    <h2>Add Recipe</h2>
+    <div name="demo" >
+
+        <form class="add-recipe-form" action="" method="post" novalidate enctype=multipart/form-data> {{ form.hidden_tag() }} 
+            <p>
+        {{ addform.title.label }}
+        {{ addform.title}}
+        {% for error in addform.title.errors %}
+        <span style="color: var(--error);">[{{ error }}]</span>
+        {% endfor %}
+        </p>
+        <p>
+            {{ addform.author.label }}<br>
+            {{ addform.author }}
+            {% for error in addform.author.errors %}
+            <span style="color: var(--error);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ addform.link.label }}<br>
+            {{ addform.link }}
+            {% for error in addform.link.errors %}
+            <span style="color: var(--error);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ addform.ingredients.label }}<br>
+            {{ addform.ingredients }}
+            {% for error in addform.ingredients.errors %}
+            <span style="color: var(--error);">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        {{ addform.rating.label }}<br>
+        <div class="star_rating">
+            {% for subfield in addform.rating %}
+                {% if loop.index0 < 5%}
+                    {{ subfield }}
+                    {{ subfield.label (class="fa fa-star") }}
+                {%endif%}
+            {% endfor %}
+        </div>
+
+        <div class="bloc">
+            {{ addform.hidden_tag() }}
+            {{ addform.tags(size = 5) }}
+        </div>
+        
+        <div class="image_upload">
+            {{ addform.image_source_link.label }}<br>
+            {{ addform.image_source_link }}
+            {% for error in addform.image_source_link.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+    
+        <div>
+            {{ addform.submit(class_="button") }}
+        </div>
+    </form>
+
+    </div>
+</div>
+            
