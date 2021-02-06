@@ -2,13 +2,9 @@
 import os
 from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request
-from sqlalchemy.orm import sessionmaker
 from app import app, db
-from app.forms import LoginForm, AddRecipe, TagList, UpdateRecipe, AddTag
+from app.forms import  AddRecipe, TagList, UpdateRecipe, AddTag
 from app.models import Recipe, Tag, recipeTag
-from app import Config
-from werkzeug.utils import secure_filename
-from flask import send_from_directory
 from app.image import Image
 
 
